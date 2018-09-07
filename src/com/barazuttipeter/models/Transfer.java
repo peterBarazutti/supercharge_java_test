@@ -40,4 +40,9 @@ public class Transfer {
     public Date getTransferDate() {
         return transferDate;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(amount) + " " + "$$$" + " - " + transferDate;
+    }
 }
