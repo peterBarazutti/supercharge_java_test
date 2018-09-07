@@ -4,6 +4,7 @@ import com.barazuttipeter.dao.DatabaseHandler;
 import com.barazuttipeter.models.ClientAccount;
 import com.barazuttipeter.models.Transfer;
 import com.barazuttipeter.util.NotEnoughMoneyExc;
+import com.barazuttipeter.util.TransactionType;
 
 import java.math.BigDecimal;
 
@@ -52,4 +53,14 @@ public class BankControl {
         }
     }
 
+    public void printHistory(int id) {
+        ClientAccount account = db.getAccountById(id);
+        System.out.println("Client's balance: " + account.getBalance());
+        System.out.println("Transfer history:");
+        for (Transfer tf : account.getTransferHistory()) {
+            System.out.println(tf);
+        }
+    }
+
+    
 }
