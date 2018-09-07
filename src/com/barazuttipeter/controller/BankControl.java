@@ -49,6 +49,7 @@ public class BankControl {
             recipientAccount.getTransferHistory()
                     .add(transfer);
         } catch (NotEnoughMoneyExc e) {
+            System.out.println("Transaction did not complete!");
             e.printStackTrace();
         }
     }
