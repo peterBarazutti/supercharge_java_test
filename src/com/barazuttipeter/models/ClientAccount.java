@@ -14,6 +14,7 @@ public class ClientAccount {
     private List<Transfer> transferHistory;
 
     public ClientAccount(String name) {
+        id = ++idCounter;
         this.name = name;
         transferHistory = new ArrayList<>();
         balance = new BigDecimal(0);
