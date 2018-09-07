@@ -8,12 +8,12 @@ public class Transfer {
     static int idCounter = 0;
 
     private int id;
-    private BigDecimal amount;
+    private int amount;
     private int senderId;
     private int recipientId;
     private Date transferDate;
 
-    public Transfer(BigDecimal amount, int senderId, int recipientId) {
+    public Transfer(int amount, int senderId, int recipientId) {
         this.amount = amount;
         this.senderId = senderId;
         this.recipientId = recipientId;
@@ -25,7 +25,7 @@ public class Transfer {
         return id;
     }
 
-    public BigDecimal getAmount() {
+    public int getAmount() {
         return amount;
     }
 
