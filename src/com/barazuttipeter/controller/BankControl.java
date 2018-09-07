@@ -7,6 +7,7 @@ import com.barazuttipeter.util.NotEnoughMoneyExc;
 import com.barazuttipeter.util.TransactionType;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class BankControl {
 
@@ -71,6 +72,15 @@ public class BankControl {
                 System.out.println(tf);
             } else if (tf.getRecipientId() == 0
                     && transactionType.equals(TransactionType.WITHDRAWAL)) {
+                System.out.println(tf);
+            }
+        }
+    }
+
+    public void filterByDate(int id, Date fromDate, Date toData){
+        ClientAccount account = db.getAccountById(id);
+        for (Transfer tf:account.getTransferHistory()) {
+            if (fromDate.compareTo(tf.getTransferDate()) == -1 && toData.compareTo(tf.getTransferDate()) == 1){
                 System.out.println(tf);
             }
         }
