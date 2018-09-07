@@ -25,4 +25,28 @@ public class BankControl {
         account.getTransferHistory()
                 .add(new Transfer(amount, 0, id));
     }
+
+
+    public void transfer(int senderId, int recipientId, int amount) {
+        BigDecimal balanceChange = new BigDecimal(amount);
+        Transfer transfer = new Transfer(amount, senderId, recipientId);
+        ClientAccount senderAccount = db.getAccountById(senderId);
+        senderAccount.setBalance(
+                senderAccount
+                        .getBalance()
+                        .subtract(balanceChange)
+        );
+        senderAccount.getTransferHistory()
+                .add(transfer);
+
+        ClientAccount recipientAccount = db.getAccountById(recipientId);
+        recipientAccount.setBalance(
+                recipientAccount
+                        .getBalance()
+                        .add(balanceChange)
+        );
+        recipientAccount.getTransferHistory()
+                .add(transfer);
+    }
+
 }
