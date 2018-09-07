@@ -25,4 +25,7 @@ public class DatabaseHandler {
         ClientAccountList.get(3).getTransferHistory().add(new Transfer(2300, 0, 3));
     }
 
+    public ClientAccount getAccountById(int id) {
+        return ClientAccountList.get(id);
+    }
 }
