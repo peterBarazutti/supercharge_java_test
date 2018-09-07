@@ -16,6 +16,7 @@ public class ClientAccount {
     public ClientAccount(String name) {
         this.name = name;
         transferHistory = new ArrayList<>();
+        balance = new BigDecimal(0);
     }
 
     public int getId() {
