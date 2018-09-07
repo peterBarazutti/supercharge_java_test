@@ -1,6 +1,7 @@
 package com.barazuttipeter.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientAccount {
@@ -14,6 +15,7 @@ public class ClientAccount {
 
     public ClientAccount(String name) {
         this.name = name;
+        transferHistory = new ArrayList<>();
     }
 
     public int getId() {
@@ -26,6 +28,10 @@ public class ClientAccount {
 
     public BigDecimal getBalance() {
         return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public List<Transfer> getTransferHistory() {
