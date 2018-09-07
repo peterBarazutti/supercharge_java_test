@@ -62,5 +62,17 @@ public class BankControl {
         }
     }
 
-    
+    public void showDepositsOrWithdrawals(int id, TransactionType transactionType) {
+        ClientAccount account = db.getAccountById(id);
+        for (Transfer tf : account.getTransferHistory()) {
+            if (tf.getSenderId() == 0
+                    && transactionType.equals(TransactionType.DEPOSIT)) {
+                System.out.println(tf);
+            } else if (tf.getRecipientId() == 0
+                    && transactionType.equals(TransactionType.WITHDRAWAL)) {
+                System.out.println(tf);
+            }
+        }
+    }
+
 }
